@@ -1,0 +1,993 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{115D8D2E-67DA-449F-869C-CB9624D056DE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>P_V.My.MyApplication</StartupObject>
+    <RootNamespace>P_V</RootNamespace>
+    <AssemblyName>P&amp;V</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>P&amp;V.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>P&amp;V.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.Barcode, Version=1.8.3.0, Culture=neutral, PublicKeyToken=4d44dd7196d3c1ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Database\MessagingToolkit.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.AccessControl.6.0.0\lib\net461\Microsoft.Win32.Registry.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.SystemEvents, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.SystemEvents.6.0.0\lib\net461\Microsoft.Win32.SystemEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharpSigned.105.2.3\lib\net46\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.6.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Odbc, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Odbc.6.0.0\lib\net461\System.Data.Odbc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OleDb, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.OleDb.6.0.0\lib\net461\System.Data.OleDb.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Diagnostics.EventLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.EventLog.6.0.0\lib\net461\System.Diagnostics.EventLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.PerformanceCounter, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.PerformanceCounter.6.0.0\lib\net461\System.Diagnostics.PerformanceCounter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipes.AccessControl, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipes.AccessControl.5.0.0\lib\net461\System.IO.Pipes.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Ports, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Ports.6.0.0\lib\net461\System.IO.Ports.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Cng, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Cng.5.0.0\lib\net47\System.Security.Cryptography.Cng.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.6.0.0\lib\net461\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.6.0.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.6.0.0\lib\net461\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.6.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Duplex, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Duplex.4.9.0\lib\net461\System.ServiceModel.Duplex.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Http, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Http.4.9.0\lib\net461\System.ServiceModel.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.NetTcp, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.NetTcp.4.9.0\lib\net461\System.ServiceModel.NetTcp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Primitives.4.9.0\lib\net461\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Security, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Security.4.9.0\lib\net461\System.ServiceModel.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Syndication, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Syndication.6.0.0\lib\net461\System.ServiceModel.Syndication.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.ServiceProcess.ServiceController, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceProcess.ServiceController.6.0.0\lib\net461\System.ServiceProcess.ServiceController.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.AccessControl.6.0.0\lib\net461\System.Threading.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.Services.Description, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Services.Description.4.9.0\lib\net461\System.Web.Services.Description.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form10.Designer.vb">
+      <DependentUpon>Form10.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form10.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form11.Designer.vb">
+      <DependentUpon>Form11.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form11.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form12.Designer.vb">
+      <DependentUpon>Form12.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form12.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form13.Designer.vb">
+      <DependentUpon>Form13.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form13.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form14.Designer.vb">
+      <DependentUpon>Form14.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form14.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form15.Designer.vb">
+      <DependentUpon>Form15.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form15.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.vb">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form4.Designer.vb">
+      <DependentUpon>Form4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form5.Designer.vb">
+      <DependentUpon>Form5.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form5.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form6.Designer.vb">
+      <DependentUpon>Form6.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form6.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form7.Designer.vb">
+      <DependentUpon>Form7.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form7.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form8.Designer.vb">
+      <DependentUpon>Form8.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form8.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form9.Designer.vb">
+      <DependentUpon>Form9.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form9.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="_POS_INVTDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_POS_INVTDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_POS_INVTDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_POS_INVTDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_POS_INVTDataSet2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_POS_INVTDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_POS_INVTDataSet3.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_POS_INVTDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_POS_INVTDataSet4.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_POS_INVTDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_POS_INVTDataSet5.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_POS_INVTDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_POS_INVTDataSet6.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_POS_INVTDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_POS_INVTDataSet7.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_POS_INVTDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_POS_INVTDataSet8.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_POS_INVTDataSet8.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form10.resx">
+      <DependentUpon>Form10.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form11.resx">
+      <DependentUpon>Form11.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form12.resx">
+      <DependentUpon>Form12.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form13.resx">
+      <DependentUpon>Form13.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form14.resx">
+      <DependentUpon>Form14.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form15.resx">
+      <DependentUpon>Form15.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form4.resx">
+      <DependentUpon>Form4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form5.resx">
+      <DependentUpon>Form5.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form6.resx">
+      <DependentUpon>Form6.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form7.resx">
+      <DependentUpon>Form7.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form8.resx">
+      <DependentUpon>Form8.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form9.resx">
+      <DependentUpon>Form9.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\DataSources\Form1.datasource" />
+    <None Include="My Project\DataSources\Form10.datasource" />
+    <None Include="My Project\DataSources\Form11.datasource" />
+    <None Include="My Project\DataSources\Form12.datasource" />
+    <None Include="My Project\DataSources\Form13.datasource" />
+    <None Include="My Project\DataSources\Form14.datasource" />
+    <None Include="My Project\DataSources\Form2.datasource" />
+    <None Include="My Project\DataSources\Form3.datasource" />
+    <None Include="My Project\DataSources\Form4.datasource" />
+    <None Include="My Project\DataSources\Form5.datasource" />
+    <None Include="My Project\DataSources\Form6.datasource" />
+    <None Include="My Project\DataSources\Form7.datasource" />
+    <None Include="My Project\DataSources\Form8.datasource" />
+    <None Include="My Project\DataSources\Form9.datasource" />
+    <None Include="My Project\DataSources\P_V.My.MyApplication.datasource" />
+    <None Include="My Project\DataSources\P_V.My.MySettings.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet1TableAdapters.SalesReportTBTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet1TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet1TableAdapters.TableAdapterManager.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet2TableAdapters.SalesReportTBTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet2TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet2TableAdapters.TableAdapterManager.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet3TableAdapters.RefundTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet3TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet3TableAdapters.TableAdapterManager.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet4TableAdapters.InventoryRecordTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet4TableAdapters.InventoryTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet4TableAdapters.PaymentTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet4TableAdapters.RefundTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet4TableAdapters.SalesReportTBTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet4TableAdapters.SupplierTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet4TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet4TableAdapters.TableAdapterManager.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet4TableAdapters.TransactionTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet4TableAdapters.UserAccountTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet4TableAdapters.VarietyTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet5TableAdapters.InventoryRecordTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet5TableAdapters.InventoryTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet5TableAdapters.PaymentTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet5TableAdapters.RefundTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet5TableAdapters.SalesReportTBTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet5TableAdapters.SupplierTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet5TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet5TableAdapters.TableAdapterManager.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet5TableAdapters.TransactionTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet5TableAdapters.UserAccountTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet5TableAdapters.VarietyTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet6TableAdapters.InventoryRecordTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet6TableAdapters.InventoryTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet6TableAdapters.PaymentTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet6TableAdapters.RefundTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet6TableAdapters.SalesReportTBTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet6TableAdapters.SupplierTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet6TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet6TableAdapters.TableAdapterManager.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet6TableAdapters.TransactionTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet6TableAdapters.UserAccountTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet6TableAdapters.VarietyTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet7TableAdapters.SalesReportTBTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet7TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet7TableAdapters.TableAdapterManager.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet8TableAdapters.SalesReportTBTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet8TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSet8TableAdapters.TableAdapterManager.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSetTableAdapters.PaymentTbTableAdapter.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSetTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="My Project\DataSources\P_V._POS_INVTDataSetTableAdapters.TableAdapterManager.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet.PaymentTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet.PaymentTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet.PaymentTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet.PaymentTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet1.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet1.SalesReportTBDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet1.SalesReportTBRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet1.SalesReportTBRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet1.SalesReportTBRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet2.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet2.SalesReportTBDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet2.SalesReportTBRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet2.SalesReportTBRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet2.SalesReportTBRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet3.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet3.RefundTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet3.RefundTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet3.RefundTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet3.RefundTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.InventoryRecordDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.InventoryRecordRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.InventoryRecordRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.InventoryRecordRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.InventoryTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.InventoryTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.InventoryTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.InventoryTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.PaymentTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.PaymentTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.PaymentTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.PaymentTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.RefundTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.RefundTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.RefundTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.RefundTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.SalesReportTBDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.SalesReportTBRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.SalesReportTBRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.SalesReportTBRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.SupplierTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.SupplierTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.SupplierTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.SupplierTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.TransactionTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.TransactionTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.TransactionTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.TransactionTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.UserAccountTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.UserAccountTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.UserAccountTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.UserAccountTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.VarietyTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.VarietyTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.VarietyTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet4.VarietyTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.InventoryRecordDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.InventoryRecordRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.InventoryRecordRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.InventoryRecordRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.InventoryTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.InventoryTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.InventoryTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.InventoryTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.PaymentTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.PaymentTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.PaymentTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.PaymentTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.RefundTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.RefundTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.RefundTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.RefundTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.SalesReportTBDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.SalesReportTBRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.SalesReportTBRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.SalesReportTBRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.SupplierTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.SupplierTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.SupplierTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.SupplierTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.TransactionTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.TransactionTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.TransactionTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.TransactionTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.UserAccountTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.UserAccountTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.UserAccountTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.UserAccountTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.VarietyTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.VarietyTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.VarietyTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet5.VarietyTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.InventoryRecordDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.InventoryRecordRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.InventoryRecordRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.InventoryRecordRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.InventoryTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.InventoryTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.InventoryTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.InventoryTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.PaymentTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.PaymentTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.PaymentTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.PaymentTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.RefundTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.RefundTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.RefundTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.RefundTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.SalesReportTBDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.SalesReportTBRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.SalesReportTBRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.SalesReportTBRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.SupplierTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.SupplierTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.SupplierTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.SupplierTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.TransactionTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.TransactionTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.TransactionTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.TransactionTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.UserAccountTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.UserAccountTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.UserAccountTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.UserAccountTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.VarietyTbDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.VarietyTbRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.VarietyTbRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet6.VarietyTbRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet7.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet7.SalesReportTBDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet7.SalesReportTBRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet7.SalesReportTBRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet7.SalesReportTBRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet8.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet8.SalesReportTBDataTable.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet8.SalesReportTBRow.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet8.SalesReportTBRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\_POS_INVTDataSet8.SalesReportTBRowChangeEventHandler.datasource" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="_POS_INVTDataSet.xsc">
+      <DependentUpon>_POS_INVTDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_POS_INVTDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_POS_INVTDataSet.xss">
+      <DependentUpon>_POS_INVTDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet1.xsc">
+      <DependentUpon>_POS_INVTDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_POS_INVTDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_POS_INVTDataSet1.xss">
+      <DependentUpon>_POS_INVTDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet2.xsc">
+      <DependentUpon>_POS_INVTDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_POS_INVTDataSet2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_POS_INVTDataSet2.xss">
+      <DependentUpon>_POS_INVTDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet3.xsc">
+      <DependentUpon>_POS_INVTDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_POS_INVTDataSet3.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_POS_INVTDataSet3.xss">
+      <DependentUpon>_POS_INVTDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet4.xsc">
+      <DependentUpon>_POS_INVTDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_POS_INVTDataSet4.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_POS_INVTDataSet4.xss">
+      <DependentUpon>_POS_INVTDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet5.xsc">
+      <DependentUpon>_POS_INVTDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_POS_INVTDataSet5.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_POS_INVTDataSet5.xss">
+      <DependentUpon>_POS_INVTDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet6.xsc">
+      <DependentUpon>_POS_INVTDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_POS_INVTDataSet6.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_POS_INVTDataSet6.xss">
+      <DependentUpon>_POS_INVTDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet7.xsc">
+      <DependentUpon>_POS_INVTDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_POS_INVTDataSet7.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_POS_INVTDataSet7.xss">
+      <DependentUpon>_POS_INVTDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet8.xsc">
+      <DependentUpon>_POS_INVTDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="_POS_INVTDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_POS_INVTDataSet8.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_POS_INVTDataSet8.xss">
+      <DependentUpon>_POS_INVTDataSet8.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\eye %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\eye %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\budget %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\budget.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\spending.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\payment-method.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\cashback.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\sync %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\sync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\plus %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\refresh %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\eye %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\save-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\save-file %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\downloads %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\padlock %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\padlock %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\padlock %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\arroba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\money-transfer %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\vape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\transaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\log-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\log-out %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\log-out %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\Ar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\Ad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\profits.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\return-box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\user %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\profits %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reseources\profit-growth %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\discount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quantity %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e-learning1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refund.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mt1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\423133302_886956756454932_6201540818748573160_n-Photoroom %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MTG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MTG1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="bin\Debug\Database\MessagingToolkit.Barcode.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg78.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\L1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\POS1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profitttttttt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CashB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expenses111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refunddd %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refund %2812%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\userA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\lockA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\search %281%29.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
